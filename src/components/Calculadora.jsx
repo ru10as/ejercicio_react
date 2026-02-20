@@ -1,6 +1,7 @@
 import './calculadora.css';
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
+import Resultado from './Resultado';
 
 function Calculadora(){
     const [operacion,setOperacion] = useState('+');
@@ -47,9 +48,7 @@ function Calculadora(){
                     <Button variant={marcadosignoelegido('x')} style={{margin:"4px"}} onClick={()=>{setOperacion('x')}}>x</Button>
                     <Button variant={marcadosignoelegido('/')} style={{margin:"4px"}} onClick={()=>{setOperacion('/')}}>/</Button>
                 </div>
-                <div className='d-flex' style={{justifyContent:"center"}}>
-                    <span>Resultado: {resultado_actual}</span>
-                </div>
+                <Resultado resultado_obtenido = {resultado_actual}></Resultado>
             </div>
         </div>
     )
