@@ -10,8 +10,9 @@ function Header() {
       <Container>
         <Navbar.Brand as={Link} to="/">
           <i className="bi bi-calculator-fill text-warning me-2">
-             CalcuRuben - Tu calculadora de confianza
           </i>
+          <span className='fw-bold text-white'>CalcuRuben
+          </span>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
