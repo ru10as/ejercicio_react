@@ -1,16 +1,40 @@
-# React + Vite
+# Calculadora React Responsiva
+Este proyecto consiste en una aplicacion de calculadora funcional desarrollada con React, diseñada para ofrecer una interfaz clara y adaptable a diferentes dispositivos mediante el uso de Bootstrap.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Arquitectura del Proyecto
+La aplicacion se establece a traves de una jerarquia de componentes que garantiza la separacion de responsabilidades:
+- App.jsx: Actua como el punto de entrada principal y contenedor global de la estructura.
+- Header, Home y Footer: Definen la estructura base y la navegacion.
+- Calculadora.jsx: Gestiona la logica de negocio, el estado de los operandos y el control de las operaciones.
+- Resultado.jsx: Se encarga exclusivamente de la representacion visual del dato final procesado.
 
-Currently, two official plugins are available:
+## Implementacion y Diseño Responsivo
+El nucleo tecnico de este desarrollo es la adaptacion dinamica de la interfaz segun el dispositivo del usuario.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Estructura de la Calculadora
+La adaptabilidad se gestiona mediante el sistema de rejilla:
+- Columnas de Entrada: Se ha configurado un valor xs=12 para los campos de entrada. Esto asegura que en pantallas de moviles los elementos ocupen el ancho total, facilitando la interaccion en un diseño vertical.
 
-## React Compiler
+- Botones de Operacion: Se utiliza un valor xs=3 para los botones. Esto permite alinear los cuatro operadores en una sola fila horizontal incluso en resoluciones minimas, optimizando el espacio en pantalla.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Breakpoint sm: Al detectar pantallas de tamaño pequeño o superior, el sistema reduce el ancho relativo de las columnas para pasar de un diseño apilado a uno horizontal, aprovechando el espacio lateral en tablets y monitores.
 
-## Expanding the ESLint configuration
+## Componente Footer
+El pie de pagina emplea una distribucion flexible para mantener la legibilidad:
+- En moviles (xs=12), los bloques de informacion se apilan verticalmente para evitar desbordamientos.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- En pantallas medianas (md=4), el contenido se divide en tres columnas iguales, ocupando cada una un tercio del contenedor.
+
+## Componente Resultado
+Este componente utiliza logica de CSS para complementar el diseño responsivo:
+- Se aplica un width del 100% para maximizar la visibilidad en moviles.
+
+- Se establece un maxWidth de 250px para prevenir deformaciones en resoluciones altas.
+
+## Instrucciones de Ejecucion
+- Clonar el repositorio.
+- Ejecutar npm install para instalar las dependencias necesarias.
+- Iniciar el proyecto con el comando npm start.
+
+## Autor
+Ruben Cameo Saez
