@@ -1,16 +1,16 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
-function Footer(){
+function Footer(props){
     return(
         <div style={{background:"#3b3232ff", color:"white"}}>
             <Container style={{color:"white"}}>
                 <Row>
                     <Col xs={12} md={4} className='text-center'>
                         <h5 style={{margin:"6px"}}>CalcuRuben</h5>
-                        <p className='text-secondary'>La mejor herramienta para tus calculos del dia</p>
+                        <p className='text-secondary'>{props.textos.breve_texto_footer}</p>
                     </Col>
                     <Col xs={12} md={4} className='text-center'>
-                        <h5 style={{margin:"6px"}}>Redes sociales</h5>
+                        <h5 style={{margin:"6px"}}>{props.textos.redes_sociales}</h5>
                         <ul className='list-unstyled'>
                             <li> <i className='bi bi-instagram me-2 text-secondary'></i>
                             <span className='text-secondary'>Instagram</span>

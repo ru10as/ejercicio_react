@@ -1,12 +1,15 @@
 import './calculadora.css';
 import { Button, Container, Row, Col } from 'react-bootstrap'; 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Resultado from './Resultado';
 
-function Calculadora(){
+function Calculadora(props){
+
     const [operacion,setOperacion] = useState('+');
     const [numA, setnumA] = useState(0);
     const [numB, setnumB] = useState(0);
+    const [resultado, setResultado] = useState(null);
+
 
     const marcadosignoelegido = (boton) =>{
         if (operacion === boton){
@@ -17,28 +20,42 @@ function Calculadora(){
         }
     }
 
-    let resultado_actual = 0;
-    if (operacion === '+'){
-        resultado_actual = numA + numB;
+
+    const calcular = () => {
+        let res = 0;
+        if (operacion === '+'){
+            res = numA + numB;
+        }
+        else if (operacion === '-'){
+            res = numA - numB;
+        }
+        else if (operacion === 'x') {
+            res = numA * numB;
+        }
+        else if (operacion === '/') {
+            if (numB === 0) {
+                res = null;
+            } else {
+                res = numA / numB;
+            }
+        }      
+        setResultado(res);
+
+        if (props.agregarAlHistorial) {
+            props.agregarAlHistorial(numA, numB, operacion, res);
+        }
     }
-    else if (operacion === '-'){
-        resultado_actual = numA - numB;
-    }
-    else if (operacion === 'x'){
-        resultado_actual = numA * numB;
-    }
-    else if (operacion === '/'){
-        resultado_actual = numA / numB;
-    }
+
+
     return(
         <div className='d-flex flex-column' style={{padding:"10px"}}>
             
             <div style={{border:"4px solid black", backgroundColor:"#b67a7aff"}}>
-                <h4 className='text-center' style={{padding:"10px"}}>Calculadora</h4>
+                <h4 className='text-center' style={{padding:"10px"}}>{props.textos.calculadora}</h4>
                 <Container>
                     <Row>
                         <Col xs={12} sm={4}>
-                            <label className='me-3 fw-bold mt-2 mb-2'>Numero A</label>
+                            <label className='me-3 fw-bold mt-2 mb-2'>{props.textos.numA}</label>
                         </Col>
 
                         <Col xs={12} sm={6}>
@@ -48,7 +65,7 @@ function Calculadora(){
 
                     <Row>
                         <Col xs={12} sm={4}>
-                            <label className='me-3 fw-bold mt-2 mb-2'>Numero B</label>
+                            <label className='me-3 fw-bold mt-2 mb-2'>{props.textos.numB}</label>
                         </Col>
 
                         <Col xs={12} sm={6}>
@@ -74,7 +91,12 @@ function Calculadora(){
                 </Container>
                 
                 
-                <Resultado resultado_obtenido = {resultado_actual}></Resultado>
+                <Container className='mt-2 d-flex align-items-center'>
+                    <Resultado resultado_obtenido={resultado} />
+                    <Button variant="success" onClick={calcular} style={{marginLeft: "10px"}}>
+                        Calcular
+                    </Button>
+                </Container>
             </div>
         </div>
     )
