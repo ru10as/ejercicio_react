@@ -1,40 +1,32 @@
-# Calculadora React Responsiva
-Este proyecto consiste en una aplicacion de calculadora funcional desarrollada con React, diseñada para ofrecer una interfaz clara y adaptable a diferentes dispositivos mediante el uso de Bootstrap.
+# CalcuRuben - Calculadora React Responsiva
+Este proyecto es una aplicacion de calculadora funcional desarrollada con React. El objetivo principal ha sido crear una interfaz clara, intuitiva y totalmente adaptable a diferentes dispositivos (PC, Tablet y Movil).
 
-## Arquitectura del Proyecto
-La aplicacion se establece a traves de una jerarquia de componentes que garantiza la separacion de responsabilidades:
-- App.jsx: Actua como el punto de entrada principal y contenedor global de la estructura.
-- Header, Home y Footer: Definen la estructura base y la navegacion.
-- Calculadora.jsx: Gestiona la logica de negocio, el estado de los operandos y el control de las operaciones.
-- Resultado.jsx: Se encarga exclusivamente de la representacion visual del dato final procesado.
+## Arquitectura y Componentes
+La aplicacion esta organizada en una jerarquia de componentes para mantener el codigo limpio y facilitar la escalabilidad:
 
-## Implementacion y Diseño Responsivo
-El nucleo tecnico de este desarrollo es la adaptacion dinamica de la interfaz segun el dispositivo del usuario.
+- **App.jsx:** Es el corazon de la aplicacion. Gestiona el estado global (idiomas e historial) y la persistencia de datos en el localStorage.
+- **Header.jsx:** Barra de navegacion responsiva con selector de idiomas (ES/EN) y menu colapsable para moviles.
+- **Home.jsx:** Actua como contenedor principal para centrar la calculadora en pantalla.
+- **Calculadora.jsx:** Contiene toda la logica matematica, la gestion de estados de los numeros y el control de los botones de operacion.
+- **Resultado.jsx:** Un componente especializado en mostrar el valor final con un diseño destacado.
+- **Historial.jsx:** Renderiza la lista de operaciones guardadas mediante el uso de .map().
+- **Contact.jsx:** Pagina de contacto maquetada para completar la estructura de navegacion de la web.
 
-## Estructura de la Calculadora
-La adaptabilidad se gestiona mediante el sistema de rejilla:
-- Columnas de Entrada: Se ha configurado un valor xs=12 para los campos de entrada. Esto asegura que en pantallas de moviles los elementos ocupen el ancho total, facilitando la interaccion en un diseño vertical.
+## Diseño Responsivo
+Uno de los puntos fuertes del proyecto es su capacidad de adaptacion mediante el sistema de rejilla:
 
-- Botones de Operacion: Se utiliza un valor xs=3 para los botones. Esto permite alinear los cuatro operadores en una sola fila horizontal incluso en resoluciones minimas, optimizando el espacio en pantalla.
+- **Calculadora:** En moviles, los campos de entrada se apilan verticalmente (xs=12) para facilitar la escritura, mientras que los botones de operacion se mantienen en una fila para ahorrar espacio.
+- **Header:** Implementa un menu hamburguesa (Navbar.Toggle) que esconde las opciones en pantallas pequeñas.
+- **Footer:** Utiliza una distribucion flexible que pasa de tres columnas en PC a una disposicion vertical en moviles.
 
-- Breakpoint sm: Al detectar pantallas de tamaño pequeño o superior, el sistema reduce el ancho relativo de las columnas para pasar de un diseño apilado a uno horizontal, aprovechando el espacio lateral en tablets y monitores.
+## Caracteristicas Adicionales
+- Sistema Multi-idioma: Implementacion propia de un diccionario de textos (ES/EN) gestionado a traves de props y estados globales.
+- Persistencia: Las operaciones no se pierden al recargar la pagina gracias al uso de localStorage.
+- Identificacion Visual: El boton de la operacion activa cambia su estilo automaticamente para que el usuario sepa que funcion esta aplicando.
 
-## Componente Footer
-El pie de pagina emplea una distribucion flexible para mantener la legibilidad:
-- En moviles (xs=12), los bloques de informacion se apilan verticalmente para evitar desbordamientos.
+## Instalacion y Uso
+- Clona el repositorio.
+- Instala las dependencias.
+- Lanza la aplicacion en modo desarrollo.
 
-- En pantallas medianas (md=4), el contenido se divide en tres columnas iguales, ocupando cada una un tercio del contenedor.
-
-## Componente Resultado
-Este componente utiliza logica de CSS para complementar el diseño responsivo:
-- Se aplica un width del 100% para maximizar la visibilidad en moviles.
-
-- Se establece un maxWidth de 250px para prevenir deformaciones en resoluciones altas.
-
-## Instrucciones de Ejecucion
-- Clonar el repositorio.
-- Ejecutar npm install para instalar las dependencias necesarias.
-- Iniciar el proyecto con el comando npm start.
-
-## Autor
-Ruben Cameo Saez
+Autor: Ruben Cameo Saez

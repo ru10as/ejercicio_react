@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { Button, Container, Row, Col, Card, Form } from 'react-bootstrap';
 
-function Contact(){
+function Contact(props){
     return(
-        <Container className='mt-5'>
+        <Container className='mt-5 mb-3'>
         <Row className="justify-content-center">
             <Col>
                 <Card style={{border:"2px solid black"}}>
                     <Card.Body>
-                        <h2>¡Ponte en contacto con nosotros!</h2>
+                        <h2>{props.textos.contacto.eslogan}</h2>
                         <Form>
                             <Form.Group className="mb-3 fw-bold">
-                                <Form.Label>Nombre</Form.Label>
+                                <Form.Label>{props.textos.contacto.nombre}</Form.Label>
                                 <Form.Control  />
                                 <Form.Text>
-                                Mete el nombre identificativo sin puntos ni guiones
+                                {props.textos.contacto.ayuda}
                                 </Form.Text>
                             </Form.Group>
 
@@ -24,12 +24,12 @@ function Contact(){
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label className='fw-bold'>Comentarios</Form.Label>
+                                <Form.Label className='fw-bold'>{props.textos.contacto.comentarios}</Form.Label>
                                 <Form.Control as="textarea" placeholder='En que podemos ayudarte'/>
                             </Form.Group>
 
                             <Button variant="dark" type="submit">
-                                Enviar mensaje
+                                {props.textos.contacto.submiteo}
                             </Button>
                         </Form>
                     </Card.Body>

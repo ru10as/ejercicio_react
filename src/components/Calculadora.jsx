@@ -51,11 +51,11 @@ function Calculadora(props){
         <div className='d-flex flex-column' style={{padding:"10px"}}>
             
             <div style={{border:"4px solid black", backgroundColor:"#b67a7aff"}}>
-                <h4 className='text-center' style={{padding:"10px"}}>{props.textos.calculadora}</h4>
+                <h4 className='text-center' style={{padding:"10px"}}>{props.textos.calc.calculadora}</h4>
                 <Container>
                     <Row>
                         <Col xs={12} sm={4}>
-                            <label className='me-3 fw-bold mt-2 mb-2'>{props.textos.numA}</label>
+                            <label className='me-3 fw-bold mt-2 mb-2'>{props.textos.calc.numA}</label>
                         </Col>
 
                         <Col xs={12} sm={6}>
@@ -65,7 +65,7 @@ function Calculadora(props){
 
                     <Row>
                         <Col xs={12} sm={4}>
-                            <label className='me-3 fw-bold mt-2 mb-2'>{props.textos.numB}</label>
+                            <label className='me-3 fw-bold mt-2 mb-2'>{props.textos.calc.numB}</label>
                         </Col>
 
                         <Col xs={12} sm={6}>
@@ -92,10 +92,16 @@ function Calculadora(props){
                 
                 
                 <Container className='mt-2 d-flex align-items-center'>
-                    <Resultado resultado_obtenido={resultado} />
-                    <Button variant="success" onClick={calcular} style={{marginLeft: "10px"}}>
-                        Calcular
-                    </Button>
+                    <Col>
+                        <Row className='justify-content-center'>
+                            <Button variant="success" onClick={calcular} style={{maxWidth:"90px"}}>
+                                {props.textos.calc.boton}
+                            </Button>
+                        </Row>
+                        <Row className='justify-content-center'>
+                            <Resultado resultado_obtenido={resultado} textos={props.textos}/>
+                        </Row>
+                    </Col>
                 </Container>
             </div>
         </div>
