@@ -1,10 +1,10 @@
 # CalcuRuben - Calculadora React Responsiva
-Este proyecto es una aplicacion de calculadora funcional desarrollada con React. El objetivo principal ha sido crear una interfaz clara, intuitiva y totalmente adaptable a diferentes dispositivos (PC, Tablet y Movil).
+Este proyecto es una aplicacion de calculadora funcional desarrollada con React. El objetivo principal ha sido crear una interfaz clara, intuitiva y totalmente adaptable a diferentes dispositivos. Ademas se ha buscado practicar con los diversos conceptos dados en clase.
 
 ## Arquitectura y Componentes
 La aplicacion esta organizada en una jerarquia de componentes para mantener el codigo limpio y facilitar la escalabilidad:
 
-- **App.jsx:** Es el corazon de la aplicacion. Gestiona el estado global (idiomas e historial) y la persistencia de datos en el localStorage.
+- **App.jsx:** Es la base de la aplicacion. Gestiona el estado global (idiomas e historial) y la persistencia de datos en el localStorage.
 - **Header.jsx:** Barra de navegacion responsiva con selector de idiomas (ES/EN) y menu colapsable para moviles.
 - **Home.jsx:** Actua como contenedor principal para centrar la calculadora en pantalla.
 - **Calculadora.jsx:** Contiene toda la logica matematica, la gestion de estados de los numeros y el control de los botones de operacion.
@@ -22,7 +22,6 @@ Uno de los puntos fuertes del proyecto es su capacidad de adaptacion mediante el
 ## Caracteristicas Adicionales
 - Sistema Multi-idioma: Implementacion propia de un diccionario de textos (ES/EN) gestionado a traves de props y estados globales.
 - Persistencia: Las operaciones no se pierden al recargar la pagina gracias al uso de localStorage.
-- Identificacion Visual: El boton de la operacion activa cambia su estilo automaticamente para que el usuario sepa que funcion esta aplicando.
 
 ## Instalacion y Uso
 - Clona el repositorio.
