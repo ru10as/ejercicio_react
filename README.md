@@ -27,6 +27,6 @@ Uno de los puntos fuertes del proyecto es su capacidad de adaptacion mediante el
 ## Instalacion y Uso
 - Clona el repositorio.
 - Instala las dependencias.
-- Lanza la aplicacion en modo desarrollo.
+- Lanza la aplicacion.
 
 Autor: Ruben Cameo Saez
